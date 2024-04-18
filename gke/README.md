@@ -117,7 +117,7 @@ list.
    gcloud container clusters delete cloud-trace-demo --zone $ZONE
    ```
 
-1. To run bench marking on services
+1. To run bench marking on cloud-trace-demo services using apache-bench:
 
    ```bash
    ab -n 100 -c 10 http://$(kubectl get svc -o=jsonpath='{.items[?(@.metadata.name=="cloud-trace-demo-a")].status.loadBalancer.ingress[0].ip}')/
